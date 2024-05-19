@@ -68,9 +68,9 @@ function validateStudent($name, $dob, $email, $phone, $series, $group, $address)
 // Functia de adaugare student
 function addStudent($name, $dob, $email, $phone, $series, $group, $address) {
     global $students;
-    // Generate unique ID for new student
+    // Generam ID unic pentru student
     $id = count($students) > 0 ? max(array_column($students, 'id')) + 1 : 1;
-    // Add student to array
+    // Adaugam studentul in array
     $newStudent = array("id" => $id, "name" => $name, "dob" => $dob, "email" => $email, "phone" => $phone, "series" => $series, "group" => $group, "address" => $address);
     $students[] = $newStudent;
     saveStudents($students);
@@ -116,20 +116,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $phone = $_POST["phone"];
         $series = $_POST["series"];
         $group = $_POST["group"];
-        $address = $_POST["address"]; // Adaugam adresa aici
+        $address = $_POST["address"];
         $id = isset($_POST["id"]) ? $_POST["id"] : null;
 
         switch ($action) {
             case "add":
-                $errors = validateStudent($name, $dob, $email, $phone, $series, $group, $address); // Adaugam adresa aici
+                $errors = validateStudent($name, $dob, $email, $phone, $series, $group, $address);
                 if (empty($errors)) {
-                    addStudent($name, $dob, $email, $phone, $series, $group, $address); // Adaugam adresa aici
+                    addStudent($name, $dob, $email, $phone, $series, $group, $address);
                 }
                 break;
             case "update":
-                $errors = validateStudent($name, $dob, $email, $phone, $series, $group, $address); // Adaugam adresa aici
+                $errors = validateStudent($name, $dob, $email, $phone, $series, $group, $address);
                 if (empty($errors)) {
-                    updateStudent($id, $name, $dob, $email, $phone, $series, $group, $address); // Adaugam adresa aici
+                    updateStudent($id, $name, $dob, $email, $phone, $series, $group, $address);
                 }
                 break;
             case "delete":

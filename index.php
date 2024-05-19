@@ -76,7 +76,7 @@
             </tr>
             </thead>
             <tbody>
-            <!-- Aici for fi afisati dinamic studentii -->
+            <!-- Aici vor fi afisati dinamic studentii -->
             </tbody>
         </table>
     </div>
@@ -156,7 +156,7 @@
         $("#group").on("input", function () {
             this.setCustomValidity("");
         });
-        // Initial fetch of students
+        // Fetch initial al studentilor
         fetchStudents();
     });
 </script>
